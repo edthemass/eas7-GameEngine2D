@@ -20,12 +20,18 @@ public class TopInterface extends Eas7DrawInterface{
     
     public TopInterface(Init init) {
         super(init);
+        this.init = init;
         setObjectShape("topBar.png");
     }
 
     @Override
     public void drawMore(Graphics2D g2d){
         g2d.setFont(getFont(10 * getGameFactor()));
-        g2d.drawString("test", 10 * getGameFactor(), 12 * getGameFactor());
+        g2d.drawString(init.getPlayerStats().getPlayerMoney() + " €"
+                , 10 * getGameFactor()
+                , 12 * getGameFactor());
+        g2d.drawString(init.getPlayerStats().getTime()
+                , 400 * getGameFactor()
+                , 12 * getGameFactor());
     }
 }

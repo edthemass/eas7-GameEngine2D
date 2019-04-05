@@ -45,7 +45,7 @@ public class Init {
         this.frameSize = frameSize;
 
         
-        playerStats = new PlayerStats();
+        this.playerStats = new PlayerStats();
         
         // add alle Objekte
         /*
@@ -74,6 +74,10 @@ public class Init {
         */
     }
 
+    public PlayerStats getPlayerStats(){
+        return this.playerStats;
+    }
+    
     public void draw(Graphics2D g2d) {
         for (Eas7Drawable i : objects) {
             i.draw(g2d);
