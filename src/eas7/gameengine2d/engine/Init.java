@@ -5,6 +5,7 @@
  */
 package eas7.gameengine2d.engine;
 
+import eas7.gameengine2d.gameObjects.BackgroundMap;
 import eas7.gameengine2d.gameObjects.TestObject;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
@@ -45,6 +46,7 @@ public class Init {
         objects.add(new PlayerUnit(this));
         objects.add(magazin = new Magazin(this, 10));
         */
+        objects.add(new BackgroundMap(this));
         objects.add(new TestObject(this));
         
         /*

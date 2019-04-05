@@ -25,7 +25,7 @@ public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, Mou
     private boolean useless = false;
     private boolean showBox = true;
     private Rectangle rectangle;
-    private boolean mouseLeft, mouseRight, mouseMiddle, mouseContains;
+    private boolean mouseLeft, mouseRight, mouseMiddle, mouseContains, isBackgroundStatic;
 
     public Eas7DrawObject(Init init) {
         this.init = init;
@@ -37,6 +37,10 @@ public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, Mou
         this.imageX = x;
         this.imageY = y;
         this.rectangle.setLocation(x, y);
+    }
+
+    public void setBackgroundStatic(boolean b) {
+        isBackgroundStatic = b;
     }
 
     @Override
@@ -55,7 +59,7 @@ public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, Mou
                 null
         );
         g2d.draw(rectangle);
-        // Polygon-Hülle transparent
+        // Rectangele Unsichtbar schalten
         if (showBox) {
             g2d.setColor(new Color(0, 0, 0, 255));
         } else {
@@ -99,9 +103,9 @@ public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, Mou
         return this.rectangle.contains(e.getPoint());
     }
 
-    public void setMouseAnchor(MouseEvent e) {
-        this.anchorX = e.getX() - this.imageX;
-        this.anchorY = e.getY() - this.imageY;
+    public void setMouseAnchor(MouseEvent e) { 
+            this.anchorX = e.getX() - this.imageX;
+            this.anchorY = e.getY() - this.imageY;
     }
 
     public boolean isMouseRight() {
@@ -121,27 +125,13 @@ public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, Mou
     }
 
     @Override
-    public void mousePressed(MouseEvent e) {
-        // Maus gedrückt
-        mouseRightPress(e);
-        mouseInObject(e);
+    public void mousePressed(MouseEvent e) {     
+        if(e.getButton() == 3){
+            mouseRight = true;
+            setMouseAnchor(e);
+        }
     }
 
-    public void mouseRightPress(MouseEvent e) {
-        if (e.getButton() == 3) {
-            mouseRight = true;
-        }
-    }
-    
-    public void mouseInObject(MouseEvent e){
-        if(isObjectContainsMouse(e)){
-            setMouseAnchor(e);
-            mouseContains = true;
-        } else {
-            mouseContains = false;
-        }
-    }
-    
     @Override
     public void mouseReleased(MouseEvent e) {
         // Maus losgelassen
@@ -158,9 +148,9 @@ public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, Mou
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        if((mouseRight) && (mouseContains)){
+        if((mouseRight) && (!isBackgroundStatic)){
             moveObjectWithMouse(e);
-        }
+        }     
     }
 
     @Override
