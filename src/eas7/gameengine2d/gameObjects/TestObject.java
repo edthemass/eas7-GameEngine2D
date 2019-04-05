@@ -10,7 +10,6 @@ import eas7.gameengine2d.engine.Eas7DrawObject;
 import eas7.gameengine2d.engine.Init;
 import java.awt.event.MouseEvent;
 
-
 /**
  *
  * @author eas7.de-play
@@ -24,28 +23,6 @@ public class TestObject extends Eas7DrawObject {
 
         setObjectShape("closer.png");
 //        setObjectPosition(100, 100);
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        if (e.getButton() == 3) {
-            System.err.println("button3");
-        }
-        if(isObjectContainsMouse(e)){
-            System.err.println("contains");
-        }
-    }
-
-    @Override
-    public void mouseDragged(MouseEvent e) {
-
-//            moveObjectWithMouse(e);
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-//        setMouseRight(false);
-//        System.err.println("released");
     }
 
 }

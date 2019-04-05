@@ -25,7 +25,7 @@ public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, Mou
     private boolean useless = false;
     private boolean showBox = true;
     private Rectangle rectangle;
-    private boolean mouseLeft, mouseRight, MouseMiddle;
+    private boolean mouseLeft, mouseRight, mouseMiddle, mouseContains;
 
     public Eas7DrawObject(Init init) {
         this.init = init;
@@ -113,24 +113,39 @@ public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, Mou
     }
 
     public void moveObjectWithMouse(MouseEvent e) {
-//        if (mouseRight) {
         setObjectPosition(e.getX() - anchorX, e.getY() - anchorY);
-//        }
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-//        System.err.println("clicked");
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-//        System.err.println("pressed");
+        // Maus gedrückt
+        mouseRightPress(e);
+        mouseInObject(e);
     }
 
+    public void mouseRightPress(MouseEvent e) {
+        if (e.getButton() == 3) {
+            mouseRight = true;
+        }
+    }
+    
+    public void mouseInObject(MouseEvent e){
+        if(isObjectContainsMouse(e)){
+            setMouseAnchor(e);
+            mouseContains = true;
+        } else {
+            mouseContains = false;
+        }
+    }
+    
     @Override
     public void mouseReleased(MouseEvent e) {
-//        System.err.println("released");
+        // Maus losgelassen
+        mouseRight = false;
     }
 
     @Override
@@ -143,6 +158,9 @@ public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, Mou
 
     @Override
     public void mouseDragged(MouseEvent e) {
+        if((mouseRight) && (mouseContains)){
+            moveObjectWithMouse(e);
+        }
     }
 
     @Override
