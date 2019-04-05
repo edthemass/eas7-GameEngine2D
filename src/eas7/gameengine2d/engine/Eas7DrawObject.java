@@ -8,7 +8,6 @@ package eas7.gameengine2d.engine;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.awt.Polygon;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -31,13 +30,13 @@ public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, Mou
     public Eas7DrawObject(Init init) {
         this.init = init;
         this.setMouseListener(init);
-        rectangle = new Rectangle();
+        this.rectangle = new Rectangle();
     }
 
     public void setObjectPosition(int x, int y) {
         this.imageX = x;
         this.imageY = y;
-
+        this.rectangle.setLocation(x, y);
     }
 
     @Override
@@ -73,7 +72,7 @@ public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, Mou
 
     }
 
-    // setzt Image und polygon Grösse
+    // setzt Image und rectangle Grösse
     public void setObjectShape(String str) {
         this.images = init.getImages().getImg(str);
         this.imageWidth = this.images.getWidth(null) * this.init.getGameFactor();
@@ -97,7 +96,6 @@ public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, Mou
 
     @Override
     public boolean isObjectContainsMouse(MouseEvent e) {
-        System.err.println(this.rectangle.contains(e.getPoint()));
         return this.rectangle.contains(e.getPoint());
     }
 
