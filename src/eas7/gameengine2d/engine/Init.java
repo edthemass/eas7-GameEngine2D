@@ -6,9 +6,13 @@
 package eas7.gameengine2d.engine;
 
 import eas7.gameengine2d.gameObjects.BackgroundMap;
+import eas7.gameengine2d.gameObjects.CitySpot;
+import eas7.gameengine2d.gameObjects.PlayerStats;
 import eas7.gameengine2d.gameObjects.TestObject;
+import eas7.gameengine2d.gameObjects.TopInterface;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
@@ -25,6 +29,7 @@ public class Init {
     private final Eas7Fonts fonts;
     private final Eas7Canvas canvas;
     private final Eas7Images images;
+    private final PlayerStats playerStats;
 
     private ArrayList<Eas7Drawable> objects = new ArrayList<>();
     
@@ -39,6 +44,9 @@ public class Init {
         this.gameFactor = gameFactor;
         this.frameSize = frameSize;
 
+        
+        playerStats = new PlayerStats();
+        
         // add alle Objekte
         /*
         objects.add(new Background(this));
@@ -47,7 +55,9 @@ public class Init {
         objects.add(magazin = new Magazin(this, 10));
         */
         objects.add(new BackgroundMap(this));
-        objects.add(new TestObject(this));
+        objects.add(new CitySpot(this, new Point(100,100)));
+        objects.add(new TopInterface(this));
+//        objects.add(new TestObject(this));
         
         /*
         // baue Mauer Kaskadiert

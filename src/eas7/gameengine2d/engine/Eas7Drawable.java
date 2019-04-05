@@ -7,9 +7,7 @@
 package eas7.gameengine2d.engine;
 
 import java.awt.Graphics2D;
-import java.awt.Polygon;
 import java.awt.event.MouseEvent;
-import java.awt.geom.Point2D;
 
 /**
  *
@@ -21,9 +19,5 @@ public interface Eas7Drawable{
     public boolean isUseless();
     public void showBoundingBox(boolean b);
     public boolean isObjectContainsMouse(MouseEvent e);
-//    public Point2D.Double getPosition();
-
     public void setMouseListener(Init init);
-//    public void setObjectSetup();
-    
 }
