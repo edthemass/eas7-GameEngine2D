@@ -8,6 +8,7 @@ package eas7.gameengine2d.engine;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -43,6 +44,10 @@ public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, Mou
         isBackgroundStatic = b;
     }
 
+    public int getGameFactor() {
+        return init.getGameFactor();
+    }
+    
     @Override
     public void setMouseListener(Init init) {
         init.getCanvas().addMouseListener(this);
@@ -65,8 +70,16 @@ public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, Mou
         } else {
             g2d.setColor(new Color(0, 0, 0, 0));
         }
+        drawMore(g2d);
     }
 
+    public void drawMore(Graphics2D g2d){
+        
+    }
+    
+    public Point getPosition(){
+        return new Point(imageX, imageY);
+    }
     @Override
     public void update() {
         moreUpdate();

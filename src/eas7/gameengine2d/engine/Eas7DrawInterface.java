@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -34,6 +35,10 @@ public class Eas7DrawInterface implements Eas7Drawable, MouseListener, MouseMoti
         this.rectangle = new Rectangle();
     }
 
+    public Init getInit(){
+        return this.init;
+    }
+    
     @Override
     public void draw(Graphics2D g2d) {
         g2d.drawImage(images,
@@ -65,6 +70,10 @@ public class Eas7DrawInterface implements Eas7Drawable, MouseListener, MouseMoti
         return init.getFonts().getFont(f);
     }
 
+    public Point getImagePos(){
+        return new Point(this.imageX, this.imageY);
+    }
+    
     // setzt Image und rectangle Grösse
     public void setObjectShape(String str) {
         this.images = init.getImages().getImg(str);

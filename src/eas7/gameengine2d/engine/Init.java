@@ -13,7 +13,6 @@ import eas7.gameengine2d.gameObjects.TopInterface;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Point;
-import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 
@@ -24,7 +23,7 @@ import java.util.ConcurrentModificationException;
 public class Init {
 
     private final double gameFactor;
-    private boolean showAllBoxes = true;
+    private boolean showAllBoxes = false;
     private final Dimension frameSize;
     private final Eas7Fonts fonts;
     private final Eas7Canvas canvas;
