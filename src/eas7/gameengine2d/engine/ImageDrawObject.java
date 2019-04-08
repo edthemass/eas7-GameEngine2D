@@ -3,20 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package eas7.gameengine2d.gameObjects;
+package eas7.gameengine2d.engine;
 
-import eas7.gameengine2d.engine.Eas7DrawObject;
-import eas7.gameengine2d.engine.Eas7Images;
-import eas7.gameengine2d.engine.Init;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.event.MouseEvent;
 
 /**
  *
  * @author eas7.de-play
  */
-public class ImageDrawObject extends Eas7DrawObject{
+public class ImageDrawObject {
 
     private Init init;
     private Eas7Images eas7Images;
@@ -24,30 +23,28 @@ public class ImageDrawObject extends Eas7DrawObject{
     private int imageWidth, imageHeight, imageX, imageY;
     private Rectangle rectangle;
 
-    public ImageDrawObject(Init init, String name) {
-        super(init);
+    public ImageDrawObject(Init init, String name, Point point) {
         this.init = init;
         this.rectangle = new Rectangle();
-        setObjectShape(name);
+        setShape(name);
+        setPosition(point.x, point.y);
     }
 
-    @Override
-    public void setObjectPosition(int x, int y) {
+    // setzte ObjectPosition
+    public void setPosition(int x, int y) {
         this.imageX = x;
         this.imageY = y;
         this.rectangle.setLocation(x, y);
     }
-    
-    // setzt Image und rectangle Grösse
-    @Override
-    public void setObjectShape(String str) {
+
+    // setzte Image und rectangle Grösse
+    public void setShape(String str) {
         this.images = init.getImages().getImg(str);
         this.imageWidth = this.images.getWidth(null) * this.init.getGameFactor();
         this.imageHeight = this.images.getHeight(null) * this.init.getGameFactor();
         this.rectangle.setBounds(imageX, imageY, imageWidth, imageHeight);
     }
-    
-    @Override
+
     public void draw(Graphics2D g2d) {
         g2d.drawImage(images,
                 imageX,
@@ -59,4 +56,11 @@ public class ImageDrawObject extends Eas7DrawObject{
         g2d.draw(rectangle);
     }
 
+    public Point getPosition() {
+        return new Point(imageX, imageY);
+    }
+    
+    public boolean isContainsMouse(MouseEvent e) {
+        return this.rectangle.contains(e.getPoint());
+    }
 }

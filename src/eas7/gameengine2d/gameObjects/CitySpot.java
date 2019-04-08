@@ -22,7 +22,7 @@ public class CitySpot extends Eas7DrawObject{
     
     public CitySpot(Init init, Point point) {
         super(init);
-        setObjectShape("workInProgressSmal.png");
+//        setObjectShape("workInProgressSmal.png");
         setObjectPosition(point.x, point.y);
         
         this.images = init.getImages().getImg("signToBuyGreenSmal15.png");
@@ -30,15 +30,15 @@ public class CitySpot extends Eas7DrawObject{
         this.imageHeight = this.images.getHeight(null) * getGameFactor();
     }
     
-    @Override
-    public void drawMore(Graphics2D g2d){
-        g2d.drawImage(images,
-                getPosition().x + 20 * getGameFactor(),
-                getPosition().y - 10 * getGameFactor(),
-                this.imageWidth,
-                this.imageHeight,
-                null
-        );
-    }
+//    @Override
+//    public void drawMore(Graphics2D g2d){
+//        g2d.drawImage(images,
+//                getPosition().x + 20 * getGameFactor(),
+//                getPosition().y - 10 * getGameFactor(),
+//                this.imageWidth,
+//                this.imageHeight,
+//                null
+//        );
+//    }
     
 }

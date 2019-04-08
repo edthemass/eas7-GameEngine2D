@@ -21,23 +21,23 @@ import java.awt.event.MouseMotionListener;
 public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, MouseMotionListener {
 
     private Init init;
-    private Image images;
-    private int imageWidth, imageHeight, imageX, imageY, anchorX, anchorY;
+//    private Image images;
+    private int /*imageWidth, imageHeight, imageX, imageY,*/ anchorX, anchorY;
     private boolean useless = false;
     private boolean showBox = true;
-    private Rectangle rectangle;
+//    private Rectangle rectangle;
     private boolean mouseLeft, mouseRight, mouseMiddle, mouseContains, isBackgroundStatic;
 
     public Eas7DrawObject(Init init) {
         this.init = init;
         this.setMouseListener(init);
-        this.rectangle = new Rectangle();
+//        this.rectangle = new Rectangle();
     }
 
     public void setObjectPosition(int x, int y) {
-        this.imageX = x;
-        this.imageY = y;
-        this.rectangle.setLocation(x, y);
+//        this.imageX = x;
+//        this.imageY = y;
+//        this.rectangle.setLocation(x, y);
     }
 
     public void setBackgroundStatic(boolean b) {
@@ -48,7 +48,6 @@ public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, Mou
         return init.getGameFactor();
     }
     
-    @Override
     public void setMouseListener(Init init) {
         init.getCanvas().addMouseListener(this);
         init.getCanvas().addMouseMotionListener(this);
@@ -56,30 +55,30 @@ public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, Mou
 
     @Override
     public void draw(Graphics2D g2d) {
-        g2d.drawImage(images,
-                imageX,
-                imageY,
-                imageWidth,
-                imageHeight,
-                null
-        );
-        g2d.draw(rectangle);
-        // Rectangele Unsichtbar schalten
-        if (showBox) {
-            g2d.setColor(new Color(0, 0, 0, 255));
-        } else {
-            g2d.setColor(new Color(0, 0, 0, 0));
-        }
-        drawMore(g2d);
+//        g2d.drawImage(images,
+//                imageX,
+//                imageY,
+//                imageWidth,
+//                imageHeight,
+//                null
+//        );
+//        g2d.draw(rectangle);
+//        // Rectangele Unsichtbar schalten
+//        if (showBox) {
+//            g2d.setColor(new Color(0, 0, 0, 255));
+//        } else {
+//            g2d.setColor(new Color(0, 0, 0, 0));
+//        }
+//        drawMore(g2d);
     }
 
-    public void drawMore(Graphics2D g2d){
-        
-    }
+//    public void drawMore(Graphics2D g2d){
+//        
+//    }
     
-    public Point getPosition(){
-        return new Point(imageX, imageY);
-    }
+//    public Point getPosition(){
+//        return new Point(imageX, imageY);
+//    }
     @Override
     public void update() {
         moreUpdate();
@@ -90,14 +89,13 @@ public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, Mou
     }
     
     // setzt Image und rectangle Grösse
-    public void setObjectShape(String str) {
-        this.images = init.getImages().getImg(str);
-        this.imageWidth = this.images.getWidth(null) * this.init.getGameFactor();
-        this.imageHeight = this.images.getHeight(null) * this.init.getGameFactor();
-        this.rectangle.setBounds(imageX, imageY, imageWidth, imageHeight);
-    }
+//    public void setObjectShape(String str) {
+//        this.images = init.getImages().getImg(str);
+//        this.imageWidth = this.images.getWidth(null) * this.init.getGameFactor();
+//        this.imageHeight = this.images.getHeight(null) * this.init.getGameFactor();
+//        this.rectangle.setBounds(imageX, imageY, imageWidth, imageHeight);
+//    }
 
-    @Override
     public boolean isUseless() {
         return useless;
     }
@@ -106,19 +104,17 @@ public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, Mou
         this.useless = useless;
     }
 
-    @Override
     public void showBoundingBox(boolean b) {
         this.showBox = b;
     }
 
-    @Override
-    public boolean isObjectContainsMouse(MouseEvent e) {
-        return this.rectangle.contains(e.getPoint());
-    }
+//    public boolean isObjectContainsMouse(MouseEvent e) {
+//        return this.rectangle.contains(e.getPoint());
+//    }
 
     public void setMouseAnchor(MouseEvent e) { 
-            this.anchorX = e.getX() - this.imageX;
-            this.anchorY = e.getY() - this.imageY;
+//            this.anchorX = e.getX() - this.imageX;
+//            this.anchorY = e.getY() - this.imageY;
     }
 
     public boolean isMouseRight() {

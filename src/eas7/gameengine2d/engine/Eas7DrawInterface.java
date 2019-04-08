@@ -86,21 +86,17 @@ public abstract class Eas7DrawInterface implements Eas7Drawable, MouseListener, 
     public void update() {
     }
 
-    @Override
     public boolean isUseless() {
         return false;
     }
 
-    @Override
     public void showBoundingBox(boolean b) {
     }
 
-    @Override
     public boolean isObjectContainsMouse(MouseEvent e) {
         return false;
     }
 
-    @Override
     public void setMouseListener(Init init) {
     }
 

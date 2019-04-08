@@ -88,17 +88,17 @@ public class Init {
         try {
             for (Eas7Drawable i : objects) {
                 i.update();
-                if (i.isUseless()) {
-                    objects.remove(i);
-                    // Damit exception nicht auftritt.. einfach ein break machen!!!
-                    break;
-                }
-                // Zeige Bounding-Boxes
-                if (showAllBoxes) {
-                    i.showBoundingBox(true);
-                } else {
-                    i.showBoundingBox(false);
-                }
+//                if (i.isUseless()) {
+//                    objects.remove(i);
+//                    // Damit exception nicht auftritt.. einfach ein break machen!!!
+//                    break;
+//                }
+//                // Zeige Bounding-Boxes
+//                if (showAllBoxes) {
+//                    i.showBoundingBox(true);
+//                } else {
+//                    i.showBoundingBox(false);
+//                }
             }
         } catch (ConcurrentModificationException e) {
             System.err.println(e);

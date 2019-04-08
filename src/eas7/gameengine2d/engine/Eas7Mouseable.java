@@ -5,15 +5,10 @@
  */
 package eas7.gameengine2d.engine;
 
-import java.awt.Graphics2D;
-
 /**
  *
- * @author eas7
+ * @author eas7.de-play
  */
-public interface Eas7Drawable {
-
-    public void draw(Graphics2D g2d);
-
-    public void update();
+public interface Eas7Mouseable {
+    
 }

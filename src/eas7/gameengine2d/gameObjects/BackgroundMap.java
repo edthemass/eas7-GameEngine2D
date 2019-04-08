@@ -17,7 +17,7 @@ public class BackgroundMap extends Eas7DrawObject{
     
     public BackgroundMap(Init init) {
         super(init);
-        setObjectShape("map1.PNG");
+//        setObjectShape("map1.PNG");
         setBackgroundStatic(false);
     }   
 }
