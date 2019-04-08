@@ -19,7 +19,7 @@ import java.awt.event.MouseMotionListener;
  *
  * @author eas7.de-play
  */
-public class Eas7DrawInterface implements Eas7Drawable, MouseListener, MouseMotionListener {
+public abstract class Eas7DrawInterface implements Eas7Drawable, MouseListener, MouseMotionListener {
 
     private Init init;
     private Image images;
@@ -113,9 +113,7 @@ public class Eas7DrawInterface implements Eas7Drawable, MouseListener, MouseMoti
     }
 
     @Override
-    public void mouseReleased(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void mouseReleased(MouseEvent e) {}
 
     @Override
     public void mouseEntered(MouseEvent e) {

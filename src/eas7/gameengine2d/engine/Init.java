@@ -56,7 +56,7 @@ public class Init {
         objects.add(new BackgroundMap(this));
         objects.add(new CitySpot(this, new Point(100,100)));
         objects.add(new TopInterface(this));
-//        objects.add(new TestObject(this));
+        objects.add(new TestObject(this));
         
         /*
         // baue Mauer Kaskadiert

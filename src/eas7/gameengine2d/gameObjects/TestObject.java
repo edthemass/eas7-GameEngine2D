@@ -8,7 +8,8 @@ package eas7.gameengine2d.gameObjects;
 
 import eas7.gameengine2d.engine.Eas7DrawObject;
 import eas7.gameengine2d.engine.Init;
-import java.awt.event.MouseEvent;
+import java.awt.Graphics2D;
+
 
 /**
  *
@@ -16,13 +17,18 @@ import java.awt.event.MouseEvent;
  */
 public class TestObject extends Eas7DrawObject {
 
-//    int xPoints[] = {0, 40, 40, 0};
-//    int yPoints[] = {0, 0, 40, 40};
+    private ImageDrawObject idoBack;
+
     public TestObject(Init init) {
         super(init);
+        
+        idoBack = new ImageDrawObject(init, "closer.png");
 
-        setObjectShape("closer.png");
-//        setObjectPosition(100, 100);
+    }
+    
+    @Override
+    public void draw(Graphics2D g2d){
+        idoBack.draw(g2d);
     }
 
 }
