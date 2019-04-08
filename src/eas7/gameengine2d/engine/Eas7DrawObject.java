@@ -5,14 +5,12 @@
  */
 package eas7.gameengine2d.engine;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.Image;
 import java.awt.Point;
-import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
 
 /**
  *
@@ -21,17 +19,14 @@ import java.awt.event.MouseMotionListener;
 public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, MouseMotionListener {
 
     private Init init;
-//    private Image images;
-    private int /*imageWidth, imageHeight, imageX, imageY,*/ anchorX, anchorY;
+    private ArrayList<Eas7Drawable> objects = new ArrayList<>();
+    private int anchorX, anchorY;
     private boolean useless = false;
-    private boolean showBox = true;
-//    private Rectangle rectangle;
-    private boolean mouseLeft, mouseRight, mouseMiddle, mouseContains, isBackgroundStatic;
+    private boolean mouseRight, isBackgroundStatic;
 
     public Eas7DrawObject(Init init) {
         this.init = init;
         this.setMouseListener(init);
-//        this.rectangle = new Rectangle();
     }
 
     public void setObjectPosition(int x, int y) {
@@ -44,57 +39,32 @@ public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, Mou
         isBackgroundStatic = b;
     }
 
-    public int getGameFactor() {
-        return init.getGameFactor();
-    }
-    
     public void setMouseListener(Init init) {
         init.getCanvas().addMouseListener(this);
         init.getCanvas().addMouseMotionListener(this);
     }
 
+    public void addImageToObject(String name, Point point) {
+        this.objects.add(new ImageDrawObject(this.init, name, point));
+    }
+
+    public void addStringToObject(String string, Point point, int size) {
+        this.objects.add(new StringDrawObject(this.init, string, point, size));
+    }
+
     @Override
     public void draw(Graphics2D g2d) {
-//        g2d.drawImage(images,
-//                imageX,
-//                imageY,
-//                imageWidth,
-//                imageHeight,
-//                null
-//        );
-//        g2d.draw(rectangle);
-//        // Rectangele Unsichtbar schalten
-//        if (showBox) {
-//            g2d.setColor(new Color(0, 0, 0, 255));
-//        } else {
-//            g2d.setColor(new Color(0, 0, 0, 0));
-//        }
-//        drawMore(g2d);
+        for (Eas7Drawable i : objects) {
+            i.draw(g2d);
+        }
     }
 
-//    public void drawMore(Graphics2D g2d){
-//        
-//    }
-    
-//    public Point getPosition(){
-//        return new Point(imageX, imageY);
-//    }
     @Override
     public void update() {
-        moreUpdate();
+        for (Eas7Drawable i : objects) {
+            i.update();
+        }
     }
-
-    public void moreUpdate() {
-
-    }
-    
-    // setzt Image und rectangle Grösse
-//    public void setObjectShape(String str) {
-//        this.images = init.getImages().getImg(str);
-//        this.imageWidth = this.images.getWidth(null) * this.init.getGameFactor();
-//        this.imageHeight = this.images.getHeight(null) * this.init.getGameFactor();
-//        this.rectangle.setBounds(imageX, imageY, imageWidth, imageHeight);
-//    }
 
     public boolean isUseless() {
         return useless;
@@ -104,15 +74,13 @@ public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, Mou
         this.useless = useless;
     }
 
-    public void showBoundingBox(boolean b) {
-        this.showBox = b;
-    }
-
+//    public void showBoundingBox(boolean b) {
+//        this.showBox = b;
+//    }
 //    public boolean isObjectContainsMouse(MouseEvent e) {
 //        return this.rectangle.contains(e.getPoint());
 //    }
-
-    public void setMouseAnchor(MouseEvent e) { 
+    public void setMouseAnchor(MouseEvent e) {
 //            this.anchorX = e.getX() - this.imageX;
 //            this.anchorY = e.getY() - this.imageY;
     }
@@ -134,8 +102,8 @@ public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, Mou
     }
 
     @Override
-    public void mousePressed(MouseEvent e) {     
-        if(e.getButton() == 3){
+    public void mousePressed(MouseEvent e) {
+        if (e.getButton() == 3) {
             mouseRight = true;
             setMouseAnchor(e);
         }
@@ -157,9 +125,9 @@ public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, Mou
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        if((mouseRight) && (!isBackgroundStatic)){
+        if ((mouseRight) && (!isBackgroundStatic)) {
             moveObjectWithMouse(e);
-        }     
+        }
     }
 
     @Override

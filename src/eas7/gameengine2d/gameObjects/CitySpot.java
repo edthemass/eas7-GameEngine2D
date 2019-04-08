@@ -22,12 +22,7 @@ public class CitySpot extends Eas7DrawObject{
     
     public CitySpot(Init init, Point point) {
         super(init);
-//        setObjectShape("workInProgressSmal.png");
-        setObjectPosition(point.x, point.y);
         
-        this.images = init.getImages().getImg("signToBuyGreenSmal15.png");
-        this.imageWidth = this.images.getWidth(null) * getGameFactor();
-        this.imageHeight = this.images.getHeight(null) * getGameFactor();
     }
     
 //    @Override

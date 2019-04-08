@@ -15,29 +15,20 @@ import java.awt.event.MouseEvent;
  *
  * @author eas7.de-play
  */
-public class ImageDrawObject {
+public final class ImageDrawObject implements Eas7Drawable {
 
-    private Init init;
-    private Eas7Images eas7Images;
+    private final Init init;
     private Image images;
     private int imageWidth, imageHeight, imageX, imageY;
-    private Rectangle rectangle;
+    private final Rectangle rectangle;
 
     public ImageDrawObject(Init init, String name, Point point) {
         this.init = init;
         this.rectangle = new Rectangle();
         setShape(name);
-        setPosition(point.x, point.y);
+        setPosition(point);
     }
 
-    // setzte ObjectPosition
-    public void setPosition(int x, int y) {
-        this.imageX = x;
-        this.imageY = y;
-        this.rectangle.setLocation(x, y);
-    }
-
-    // setzte Image und rectangle Grösse
     public void setShape(String str) {
         this.images = init.getImages().getImg(str);
         this.imageWidth = this.images.getWidth(null) * this.init.getGameFactor();
@@ -45,6 +36,7 @@ public class ImageDrawObject {
         this.rectangle.setBounds(imageX, imageY, imageWidth, imageHeight);
     }
 
+    @Override
     public void draw(Graphics2D g2d) {
         g2d.drawImage(images,
                 imageX,
@@ -54,13 +46,29 @@ public class ImageDrawObject {
                 null
         );
         g2d.draw(rectangle);
+//        if (showBox) {
+//            g2d.setColor(new Color(0, 0, 0, 255));
+//        } else {
+//            g2d.setColor(new Color(0, 0, 0, 0));
+//        }
+    }
+
+    @Override
+    public void update() {
+    }
+
+    public void setPosition(Point pos) {
+        this.imageX = pos.x;
+        this.imageY = pos.y;
+        this.rectangle.setLocation(pos.x, pos.y);
     }
 
     public Point getPosition() {
         return new Point(imageX, imageY);
     }
-    
+
     public boolean isContainsMouse(MouseEvent e) {
         return this.rectangle.contains(e.getPoint());
     }
+
 }

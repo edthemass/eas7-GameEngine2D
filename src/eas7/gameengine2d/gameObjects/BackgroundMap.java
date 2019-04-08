@@ -7,7 +7,7 @@ package eas7.gameengine2d.gameObjects;
 
 import eas7.gameengine2d.engine.Eas7DrawObject;
 import eas7.gameengine2d.engine.Init;
-import java.awt.event.MouseEvent;
+import java.awt.Point;
 
 /**
  *
@@ -19,5 +19,7 @@ public class BackgroundMap extends Eas7DrawObject{
         super(init);
 //        setObjectShape("map1.PNG");
         setBackgroundStatic(false);
+        addImageToObject("closer.png", new Point(100,100));
+        addStringToObject("test", new Point(100,100), 10);
     }   
 }
