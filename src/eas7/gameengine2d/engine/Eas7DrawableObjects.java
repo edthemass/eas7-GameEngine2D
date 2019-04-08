@@ -6,17 +6,16 @@
 package eas7.gameengine2d.engine;
 
 import java.awt.Graphics2D;
-import java.awt.Point;
 
 /**
  *
- * @author eas7
+ * @author eas7.de-play
  */
-public interface Eas7Drawable {
+public interface Eas7DrawableObjects {
 
     public void draw(Graphics2D g2d);
 
     public void update();
 
-    public void setPosition(Point point);
+    
 }

@@ -30,7 +30,7 @@ public class Init {
     private final Eas7Images images;
     private final PlayerStats playerStats;
 
-    private ArrayList<Eas7Drawable> objects = new ArrayList<>();
+    private ArrayList<Eas7DrawableObjects> objects = new ArrayList<>();
     
     public Init(Eas7Canvas c, Eas7Images i, double gameFactor, Dimension frameSize) {
         // set Font
@@ -55,7 +55,7 @@ public class Init {
         */
         objects.add(new BackgroundMap(this));
         objects.add(new CitySpot(this, new Point(100,100)));
-        objects.add(new TopInterface(this));
+//        objects.add(new TopInterface(this));
         objects.add(new TestObject(this));
         
         /*
@@ -78,7 +78,7 @@ public class Init {
     }
     
     public void draw(Graphics2D g2d) {
-        for (Eas7Drawable i : objects) {
+        for (Eas7DrawableObjects i : objects) {
             i.draw(g2d);
         }
     }
@@ -86,7 +86,7 @@ public class Init {
     public void update() {
         // Alle Objekte mit Status "useless" werden aus liste gelöscht
         try {
-            for (Eas7Drawable i : objects) {
+            for (Eas7DrawableObjects i : objects) {
                 i.update();
 //                if (i.isUseless()) {
 //                    objects.remove(i);

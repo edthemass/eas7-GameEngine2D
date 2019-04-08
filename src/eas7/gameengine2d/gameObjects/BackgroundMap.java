@@ -19,7 +19,7 @@ public class BackgroundMap extends Eas7DrawObject{
         super(init);
 //        setObjectShape("map1.PNG");
         setBackgroundStatic(false);
-        addImageToObject("closer.png", new Point(100,100));
-        addStringToObject("test", new Point(100,100), 10);
+        addImageToObject("map1.PNG", new Point(0,0));
+//        addStringToObject("test", new Point(100,100), 10);
     }   
 }

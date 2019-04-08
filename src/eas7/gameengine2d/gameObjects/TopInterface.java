@@ -9,6 +9,7 @@ import eas7.gameengine2d.engine.Eas7DrawInterface;
 import eas7.gameengine2d.engine.Init;
 import java.awt.Font;
 import java.awt.Graphics2D;
+import java.awt.Point;
 
 /**
  *
@@ -33,5 +34,10 @@ public class TopInterface extends Eas7DrawInterface{
         g2d.drawString(init.getPlayerStats().getTime()
                 , 400 * getGameFactor()
                 , 12 * getGameFactor());
+    }
+
+    @Override
+    public void setPosition(Point point) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

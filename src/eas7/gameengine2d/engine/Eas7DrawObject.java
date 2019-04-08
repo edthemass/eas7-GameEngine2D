@@ -16,23 +16,24 @@ import java.util.ArrayList;
  *
  * @author Edgar Strauß
  */
-public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, MouseMotionListener {
+public abstract class Eas7DrawObject implements Eas7DrawableObjects, MouseListener, MouseMotionListener {
 
     private Init init;
     private ArrayList<Eas7Drawable> objects = new ArrayList<>();
     private int anchorX, anchorY;
     private boolean useless = false;
     private boolean mouseRight, isBackgroundStatic;
+//    private Point relativPos, anchor;
 
     public Eas7DrawObject(Init init) {
         this.init = init;
         this.setMouseListener(init);
     }
 
-    public void setObjectPosition(int x, int y) {
-//        this.imageX = x;
-//        this.imageY = y;
-//        this.rectangle.setLocation(x, y);
+    public void setObjectPosition(Point point) {
+        for (Eas7Drawable i : objects) {
+            i.setPosition(point);
+        }
     }
 
     public void setBackgroundStatic(boolean b) {
@@ -94,7 +95,7 @@ public abstract class Eas7DrawObject implements Eas7Drawable, MouseListener, Mou
     }
 
     public void moveObjectWithMouse(MouseEvent e) {
-        setObjectPosition(e.getX() - anchorX, e.getY() - anchorY);
+        setObjectPosition(new Point(e.getX() - anchorX, e.getY() - anchorY));
     }
 
     @Override
