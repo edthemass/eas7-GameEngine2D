@@ -20,14 +20,16 @@ public abstract class Eas7DrawObject implements Eas7DrawableObjects, MouseListen
 
     private Init init;
     private ArrayList<Eas7Drawable> objects = new ArrayList<>();
-    private int anchorX, anchorY;
+//    private int anchorX, anchorY;
     private boolean useless = false;
-    private boolean mouseRight, isBackgroundStatic;
-//    private Point relativPos, anchor;
+    private boolean mouseRight;
+    private Point relativPos, anchor;
 
     public Eas7DrawObject(Init init) {
         this.init = init;
         this.setMouseListener(init);
+        this.relativPos = new Point();
+        this.anchor = new Point();
     }
 
     public void setObjectPosition(Point point) {
@@ -37,7 +39,7 @@ public abstract class Eas7DrawObject implements Eas7DrawableObjects, MouseListen
     }
 
     public void setBackgroundStatic(boolean b) {
-        isBackgroundStatic = b;
+//        isBackgroundStatic = b;
     }
 
     public void setMouseListener(Init init) {
@@ -95,7 +97,7 @@ public abstract class Eas7DrawObject implements Eas7DrawableObjects, MouseListen
     }
 
     public void moveObjectWithMouse(MouseEvent e) {
-        setObjectPosition(new Point(e.getX() - anchorX, e.getY() - anchorY));
+//        setObjectPosition(new Point(e.getX() - anchorX, e.getY() - anchorY));
     }
 
     @Override
@@ -126,7 +128,7 @@ public abstract class Eas7DrawObject implements Eas7DrawableObjects, MouseListen
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        if ((mouseRight) && (!isBackgroundStatic)) {
+        if (mouseRight) {
             moveObjectWithMouse(e);
         }
     }
