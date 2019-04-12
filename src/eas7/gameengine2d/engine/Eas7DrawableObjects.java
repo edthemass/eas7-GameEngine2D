@@ -16,6 +16,5 @@ public interface Eas7DrawableObjects {
     public void draw(Graphics2D g2d);
 
     public void update();
-
-    
+   
 }

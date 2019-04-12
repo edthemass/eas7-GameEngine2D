@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package eas7.gameengine2d.engine;
+package eas7.gameengine2d.oldbutgold;
 
+import eas7.gameengine2d.engine.Eas7Drawable;
+import eas7.gameengine2d.engine.Init;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;

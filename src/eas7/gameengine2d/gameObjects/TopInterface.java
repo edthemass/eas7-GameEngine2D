@@ -5,7 +5,7 @@
  */
 package eas7.gameengine2d.gameObjects;
 
-import eas7.gameengine2d.engine.Eas7DrawInterface;
+import eas7.gameengine2d.oldbutgold.Eas7DrawInterface;
 import eas7.gameengine2d.engine.Init;
 import java.awt.Font;
 import java.awt.Graphics2D;

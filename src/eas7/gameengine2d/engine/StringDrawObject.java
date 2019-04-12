@@ -25,6 +25,7 @@ public class StringDrawObject implements Eas7Drawable {
         setPosition(point);
     }
 
+    @Override
     public void setPosition(Point pos) {
         this.stringX = pos.x;
         this.stringY = pos.y;
