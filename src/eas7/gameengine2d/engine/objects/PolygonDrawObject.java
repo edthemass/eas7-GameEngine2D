@@ -16,7 +16,7 @@ import java.awt.Polygon;
  *
  * @author eas7.de-play
  */
-public final class PolygonDrawObject implements Eas7Drawable {
+public class PolygonDrawObject implements Eas7Drawable {
 
     private final Init init;
     private final Polygon polygon;
