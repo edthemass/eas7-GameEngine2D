@@ -59,6 +59,7 @@ public final class ImageDrawObject implements Eas7Drawable {
     public void update() {
     }
 
+    @Override
     public void setPosition(Point pos) {
         this.imageX = pos.x;
         this.imageY = pos.y;

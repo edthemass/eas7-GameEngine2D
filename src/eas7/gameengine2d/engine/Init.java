@@ -8,6 +8,7 @@ package eas7.gameengine2d.engine;
 import eas7.gameengine2d.gameObjects.BackgroundMap;
 import eas7.gameengine2d.gameObjects.CitySpot;
 import eas7.gameengine2d.gameObjects.PlayerStats;
+import eas7.gameengine2d.gameObjects.TestMapTile;
 import eas7.gameengine2d.gameObjects.TestObject;
 import eas7.gameengine2d.gameObjects.TopInterface;
 import java.awt.Dimension;
@@ -57,6 +58,7 @@ public class Init {
         objects.add(new CitySpot(this, new Point(100,100)));
 //        objects.add(new TopInterface(this));
         objects.add(new TestObject(this));
+        objects.add(new TestMapTile(this));
         
 //        objects.add(new PolygonDrawObject(this, new Point(0,0)));
         
