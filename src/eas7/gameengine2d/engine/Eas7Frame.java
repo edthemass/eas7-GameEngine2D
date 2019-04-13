@@ -41,7 +41,7 @@ public class Eas7Frame {
         //frame.setLocation(200, 300);
         frame.setResizable(false);
         
-        // TODO nicht frameSize übereben sondern Factor
+        // nicht frameSize übereben sondern Factor
         frame.add(new Eas7Canvas(getGameFrameFactor(), frameSize));
         frame.setVisible(true);    
     }

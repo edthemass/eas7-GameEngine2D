@@ -5,7 +5,6 @@
  */
 package eas7.gameengine2d.engine;
 
-
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -23,7 +22,7 @@ public class Eas7Canvas extends JComponent implements Runnable {
     private Init init;
 
     public Eas7Canvas(double gameFactor, Dimension frameSize) {
-        // TODO DIMENSION IN IMAGES ÜBERGEBEN
+
         init = new Init(this, new Eas7Images(), gameFactor, frameSize);
         thread = new Thread(this);
         // Wahrscheinlich mit einer Abfrage abfangen
@@ -72,5 +71,5 @@ public class Eas7Canvas extends JComponent implements Runnable {
 
     public Init getInit() {
         return init;
-    } 
+    }
 }
