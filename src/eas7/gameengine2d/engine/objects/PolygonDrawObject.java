@@ -40,16 +40,16 @@ public final class PolygonDrawObject implements Eas7Drawable {
     }
     
     public void setPolygonImage(String str) {
-        this.image = init.getImages().getImg(str);
+        this.image = this.init.getImages().getImg(str);
         this.imageWidth = this.image.getWidth(null) * this.init.getGameFactor();
         this.imageHeight = this.image.getHeight(null) * this.init.getGameFactor();
     }
     
-    public void setPolygonImage(Image image){
-        this.image = image;
-        this.imageWidth = this.image.getWidth(null) * this.init.getGameFactor();
-        this.imageHeight = this.image.getHeight(null) * this.init.getGameFactor();
-    }
+//    public void setPolygonImage(Image image){
+//        this.image = image;
+//        this.imageWidth = this.image.getWidth(null) * this.init.getGameFactor();
+//        this.imageHeight = this.image.getHeight(null) * this.init.getGameFactor();
+//    }
 
     @Override
     public void draw(Graphics2D g2d) {
