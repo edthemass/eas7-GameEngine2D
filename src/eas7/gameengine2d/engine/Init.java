@@ -58,7 +58,10 @@ public class Init {
         objects.add(new CitySpot(this, new Point(100,100)));
 //        objects.add(new TopInterface(this));
         objects.add(new TestObject(this));
-        objects.add(new TestMapTile(this));
+        
+        objects.add(new TestMapTile(this, new Point(0,0)));
+        objects.add(new TestMapTile(this, new Point(60,0)));
+        objects.add(new TestMapTile(this, new Point(120,0)));
         
 //        objects.add(new PolygonDrawObject(this, new Point(0,0)));
         
