@@ -34,7 +34,6 @@ public class PolygonDrawObject implements Eas7Drawable {
         this.ypoints = ypoints;
         this.npoints = npoints;
         setPolygonShape(xpoints, ypoints, npoints);
-//        setPolygonImage(init.getImages().getImg(imagename));
         setPolygonImage(imagename);
         setPosition(point);
     }
