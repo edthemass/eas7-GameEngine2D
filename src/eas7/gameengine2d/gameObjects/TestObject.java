@@ -6,10 +6,11 @@
  */
 package eas7.gameengine2d.gameObjects;
 
-import eas7.gameengine2d.engine.ImageDrawObject;
+import eas7.gameengine2d.engine.objects.ImageDrawObject;
 import eas7.gameengine2d.engine.Eas7DrawObject;
 import eas7.gameengine2d.engine.Init;
 import java.awt.Graphics2D;
+import java.awt.Point;
 
 
 /**
@@ -22,7 +23,7 @@ public class TestObject extends Eas7DrawObject {
 
     public TestObject(Init init) {
         super(init);
-        
+        addStringToObject("TEASt", new Point(100,100), 10);
 //        idoBack = new ImageDrawObject(init, "closer.png");
 
     }

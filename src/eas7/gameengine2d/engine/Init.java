@@ -58,6 +58,8 @@ public class Init {
 //        objects.add(new TopInterface(this));
         objects.add(new TestObject(this));
         
+//        objects.add(new PolygonDrawObject(this, new Point(0,0)));
+        
         /*
         // baue Mauer Kaskadiert
         Point2D.Double posBaricade = new Point2D.Double(10, getFrameSize().height - (80 * getGameFactor()));

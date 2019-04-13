@@ -24,7 +24,7 @@ public class Eas7Fonts {
 
     public Eas7Fonts(String name) {
         try {
-            for (float i = 0f; i < 60f; i++) {
+            for (float i = 0f; i < 100f; i++) {
                 fonts.add(Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("src\\eas7\\GameEngine2D\\fonts\\" + name)).deriveFont(i));
             }
         } catch (FontFormatException | IOException ex) {

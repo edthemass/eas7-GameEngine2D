@@ -13,13 +13,15 @@ import java.awt.Point;
  *
  * @author eas7.de-play
  */
-public class BackgroundMap extends Eas7DrawObject {
+public class TestMapTile extends Eas7DrawObject {
 
-    public BackgroundMap(Init init) {
+    private int[] xpoints, ypoints;
+    private int npoints;
+    private String imagename = "emptyHouseSmal.png";
+
+    public TestMapTile(Init init) {
         super(init);
-//        setObjectShape("map1.PNG");
-        setBackgroundStatic(false);
-        addImageToObject("map1.PNG", new Point(0, 0));
-//        addStringToObject("test", new Point(100,100), 10);
+        addPolygonToObject(new Point(100, 100), this.xpoints, this.ypoints, this.npoints, "emptyHouseSmal.png");
     }
+
 }
