@@ -7,6 +7,7 @@ package eas7.gameengine2d.engine;
 
 import eas7.gameengine2d.engine.objects.ImageDrawObject;
 import eas7.gameengine2d.engine.objects.PolygonDrawObject;
+import eas7.gameengine2d.engine.objects.ProcessBarDrawObject;
 import eas7.gameengine2d.engine.objects.StringDrawObject;
 import java.awt.Graphics2D;
 import java.awt.Point;
@@ -62,6 +63,10 @@ public abstract class Eas7DrawObject implements Eas7DrawableObjects, MouseListen
     
     public void addPolygonToObject(Point point, int[] xpoints, int[] ypoints, int npoints, String imagename){
         this.objects.add(new PolygonDrawObject(this.init, point, xpoints, ypoints, npoints, imagename));
+    }
+    
+    public void addProcessBarToObject(Point point, int[] xpoints, int[] ypoints, int npoints, String imagename){
+        this.objects.add(new ProcessBarDrawObject(this.init, point, xpoints, ypoints, npoints, imagename));
     }
 
     @Override

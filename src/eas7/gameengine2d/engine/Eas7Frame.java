@@ -56,7 +56,7 @@ public class Eas7Frame {
         
         // zum Testen von eigenen Auflösungen
         //TODO Kann man in Vorherigen Menü (nocht nicht Vorhande) umstellen
-        int solution = 4;
+        int solution = 2;
         switch(solution){
             case 1: frameSize = new Dimension(480 , 270); break;
             case 2: frameSize = new Dimension(960 , 540); break;

@@ -61,7 +61,7 @@ public class PolygonDrawObject implements Eas7Drawable {
 
     @Override
     public void setPosition(Point point) {
-        for (int i = 0; i < this.npoints; i++) {
+        for (int i = 0; i < this.polygon.npoints; i++) {
             this.polygon.xpoints[i] = this.xpoints[i] + point.x * this.gameFactor;
             this.polygon.ypoints[i] = this.ypoints[i] + point.y * this.gameFactor;
         }
@@ -91,5 +91,28 @@ public class PolygonDrawObject implements Eas7Drawable {
     @Override
     public void update() {
     }
+    
+    public int getGameFactor(){
+        return this.gameFactor;
+    }
+    
+    public void setImageWidthPos(int x){
+        this.position.x = x;
+    }
+    
+    public void setImageMove(){
+        this.position.x += 1 * gameFactor;
+    }
 
+    public int getImageWidth(){
+        return this.image.getWidth(null);
+    }
+    
+    public int getImagePosX(){
+        return position.x;
+    }
+    
+    public int[] getXpoints(){
+        return this.xpoints;
+    }
 }
