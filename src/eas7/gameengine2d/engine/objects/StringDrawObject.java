@@ -17,25 +17,26 @@ import java.awt.Point;
 public class StringDrawObject implements Eas7Drawable {
 
     private final Init init;
-    private int stringX, stringY, size;
+    private int stringX, stringY, size, gameFactor;
     private String string;
 
     public StringDrawObject(Init init, String string, Point point, int size) {
         this.init = init;
         this.string = string;
         this.size = size;
+        this.gameFactor = this.init.getGameFactor();
         setPosition(point);
     }
 
     @Override
     public void setPosition(Point pos) {
-        this.stringX = pos.x;
-        this.stringY = pos.y;
+        this.stringX = pos.x * gameFactor;
+        this.stringY = pos.y * gameFactor;
     }
 
     @Override
     public void draw(Graphics2D g2d) {
-        g2d.setFont(this.init.getFonts().getFont(this.size * init.getGameFactor()));
+        g2d.setFont(this.init.getFonts().getFont(this.size * gameFactor));
         g2d.drawString(string, stringX, stringY);
     }
 

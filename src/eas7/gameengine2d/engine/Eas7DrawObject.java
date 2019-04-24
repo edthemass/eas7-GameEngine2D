@@ -21,6 +21,8 @@ import java.util.ArrayList;
  */
 public abstract class Eas7DrawObject implements Eas7DrawableObjects, MouseListener, MouseMotionListener {
 
+    // ZeichenObjekt wird hier definiert mit seinen Methoden
+    
     private Init init;
     private ArrayList<Eas7Drawable> objects = new ArrayList<>();
 //    private int anchorX, anchorY;

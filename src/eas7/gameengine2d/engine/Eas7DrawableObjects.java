@@ -14,6 +14,7 @@ import java.awt.Graphics2D;
  */
 public interface Eas7DrawableObjects {
 
+    // Object für DrawObject Zeichnung
     public void draw(Graphics2D g2d);
 
     public void update();

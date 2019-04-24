@@ -14,6 +14,7 @@ import java.awt.Point;
  */
 public interface Eas7Drawable {
 
+    // Objekte für Canvas Zeichnung 
     public void draw(Graphics2D g2d);
 
     public void update();

@@ -23,7 +23,7 @@ public class PolygonDrawObject implements Eas7Drawable {
     private final Polygon polygon;
     private final Point position;
     private Image image;
-    private int imageWidth, imageHeight, npoints;
+    private int imageWidth, imageHeight, npoints, gameFactor;
     private int[] xpoints, ypoints;
 
     public PolygonDrawObject(Init init, Point point, int[] xpoints, int[] ypoints, int npoints, String imagename) {
@@ -33,32 +33,43 @@ public class PolygonDrawObject implements Eas7Drawable {
         this.xpoints = xpoints;
         this.ypoints = ypoints;
         this.npoints = npoints;
+        this.gameFactor = this.init.getGameFactor();
         setPolygonShape(xpoints, ypoints, npoints);
         setPolygonImage(imagename);
         setPosition(point);
     }
-    
-    public void setPolygonShape(int[] xpoints, int[] ypoints, int npoints){
+
+    public void setPolygonShape(int[] xpoints, int[] ypoints, int npoints) {
         this.polygon.xpoints = xpoints;
         this.polygon.ypoints = ypoints;
         this.polygon.npoints = npoints;
+        // verzerre Polygon nach Gamefactor
+        for (int i = 0; i < this.polygon.xpoints.length; i++) {
+            this.polygon.xpoints[i] *= this.gameFactor;
+        }
+        for (int i = 0; i < this.polygon.ypoints.length; i++) {
+            this.polygon.ypoints[i] *= this.gameFactor;
+        }
+
     }
-    
+
     public void setPolygonImage(String str) {
         this.image = this.init.getImages().getImg(str);
-        this.imageWidth = this.image.getWidth(null) * this.init.getGameFactor();
-        this.imageHeight = this.image.getHeight(null) * this.init.getGameFactor();
+        this.imageWidth = this.image.getWidth(null) * this.gameFactor;
+        this.imageHeight = this.image.getHeight(null) * this.gameFactor;
     }
 
     @Override
-    public void setPosition(Point point){
-        for(int i = 0; i <this.npoints; i++){
-            this.polygon.xpoints[i] = this.xpoints[i] + point.x;
-            this.polygon.ypoints[i] = this.ypoints[i] + point.y;
+    public void setPosition(Point point) {
+        for (int i = 0; i < this.npoints; i++) {
+            this.polygon.xpoints[i] = this.xpoints[i] + point.x * this.gameFactor;
+            this.polygon.ypoints[i] = this.ypoints[i] + point.y * this.gameFactor;
         }
-        this.position.x = point.x;
-        this.position.y = point.y;
+        // position = image pos
+        this.position.x = point.x * this.gameFactor;
+        this.position.y = point.y * this.gameFactor;
     }
+
     @Override
     public void draw(Graphics2D g2d) {
         //image clip polygon dispose
@@ -74,12 +85,11 @@ public class PolygonDrawObject implements Eas7Drawable {
         g2d.setColor(Color.red);
         g2d.draw(polygon);
 //        g2d.dispose();
-        
+
     }
 
     @Override
-    public void update() {}
-
-    
+    public void update() {
+    }
 
 }
