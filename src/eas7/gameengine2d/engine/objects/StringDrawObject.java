@@ -18,14 +18,25 @@ public class StringDrawObject implements Eas7Drawable {
 
     private final Init init;
     private int stringX, stringY, size, gameFactor;
-    private String string;
+    private String string, name;
 
-    public StringDrawObject(Init init, String string, Point point, int size) {
+    public StringDrawObject(Init init, String string, String name, Point point, int size) {
         this.init = init;
         this.string = string;
         this.size = size;
         this.gameFactor = this.init.getGameFactor();
+        setName(name);
         setPosition(point);
+
+    }
+
+    public void setString(String string) {
+        this.string = string;
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
     }
 
     @Override
@@ -43,9 +54,17 @@ public class StringDrawObject implements Eas7Drawable {
     @Override
     public void update() {
         //setString(string);
+        refreshString();
+    }
+
+    public void refreshString() {
+
     }
 
 //    public void setString(String string){
 //        this.string = string;
 //    }
+    public void setName(String name) {
+        this.name = name;
+    }
 }

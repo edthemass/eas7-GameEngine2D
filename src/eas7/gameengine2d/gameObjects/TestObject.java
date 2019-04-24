@@ -23,7 +23,7 @@ public class TestObject extends Eas7DrawObject {
 
     public TestObject(Init init) {
         super(init);
-        addStringToObject("TEASt", new Point(100,100), 10);
+        addStringToObject("TEASt", "teststring", new Point(100,100), 10);
 //        idoBack = new ImageDrawObject(init, "closer.png");
 
     }

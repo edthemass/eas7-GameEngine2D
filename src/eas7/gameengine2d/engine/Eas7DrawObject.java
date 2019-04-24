@@ -30,12 +30,14 @@ public abstract class Eas7DrawObject implements Eas7DrawableObjects, MouseListen
     private boolean useless = false;
     private boolean mouseRight;
     private Point relativPos, anchor;
+    private String name;
 
     public Eas7DrawObject(Init init) {
         this.init = init;
         this.setMouseListener(init);
         this.relativPos = new Point();
         this.anchor = new Point();
+        
     }
 
     public void setObjectPosition(Point point) {
@@ -44,29 +46,36 @@ public abstract class Eas7DrawObject implements Eas7DrawableObjects, MouseListen
         }
     }
 
-    public void setBackgroundStatic(boolean b) {
-//        isBackgroundStatic = b;
+    public void setName(String name){
+        this.name = name;
     }
+    
+    public String getName(){
+        return this.name;
+    }
+//    public void setBackgroundStatic(boolean b) {
+////        isBackgroundStatic = b;
+//    }
 
     public void setMouseListener(Init init) {
         init.getCanvas().addMouseListener(this);
         init.getCanvas().addMouseMotionListener(this);
     }
 
-    public void addImageToObject(String name, Point point) {
-        this.objects.add(new ImageDrawObject(this.init, name, point));
+    public void addImageToObject(String imageName, String name, Point point) {
+        this.objects.add(new ImageDrawObject(this.init, imageName, name, point));
     }
 
-    public void addStringToObject(String string, Point point, int size) {
-        this.objects.add(new StringDrawObject(this.init, string, point, size));
+    public void addStringToObject(String string, String name, Point point, int size) {
+        this.objects.add(new StringDrawObject(this.init, string, name, point, size));
     }
     
-    public void addPolygonToObject(Point point, int[] xpoints, int[] ypoints, int npoints, String imagename){
-        this.objects.add(new PolygonDrawObject(this.init, point, xpoints, ypoints, npoints, imagename));
+    public void addPolygonToObject(Point point, String name, int[] xpoints, int[] ypoints, int npoints, String imagename){
+        this.objects.add(new PolygonDrawObject(this.init, name, point, xpoints, ypoints, npoints, imagename));
     }
     
-    public void addProcessBarToObject(Point point, int[] xpoints, int[] ypoints, int npoints, String imagename){
-        this.objects.add(new ProcessBarDrawObject(this.init, point, xpoints, ypoints, npoints, imagename));
+    public void addProcessBarToObject(Point point, String name, int[] xpoints, int[] ypoints, int npoints, String imagename){
+        this.objects.add(new ProcessBarDrawObject(this.init, name, point, xpoints, ypoints, npoints, imagename));
     }
 
     @Override
@@ -149,5 +158,17 @@ public abstract class Eas7DrawObject implements Eas7DrawableObjects, MouseListen
 
     @Override
     public void mouseMoved(MouseEvent e) {
+    }
+    
+    public ArrayList<Eas7Drawable> getObject(){
+        return this.objects;
+    }
+    
+    public void setObjectString(String name, String string){
+        for (int i = 0; i < getObject().size(); i++) {
+            if (getObject().get(i).getName().equals(name)) {
+                getObject().get(i).setString(string);
+            }
+        }
     }
 }

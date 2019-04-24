@@ -17,8 +17,8 @@ import java.awt.Polygon;
  */
 public class ProcessBarDrawObject extends PolygonDrawObject {
 
-    public ProcessBarDrawObject(Init init, Point point, int[] xpoints, int[] ypoints, int npoints, String imagename) {
-        super(init, point, xpoints, ypoints, npoints, imagename);
+    public ProcessBarDrawObject(Init init, String name, Point point, int[] xpoints, int[] ypoints, int npoints, String imagename) {
+        super(init, name, point, xpoints, ypoints, npoints, imagename);
         setProcessImageNullPosition();
     }
 

@@ -22,7 +22,7 @@ public class TestMapTile extends Eas7DrawObject {
 
     public TestMapTile(Init init, Point point) {
         super(init);
-        addPolygonToObject(point, this.xpoints, this.ypoints, this.npoints, "emptyHouseSmal.png");
+        addPolygonToObject(point, "testname", this.xpoints, this.ypoints, this.npoints, "emptyHouseSmal.png");
 //        addPolygonToObject(new Point(60, 0), this.xpoints, this.ypoints, this.npoints, "emptyHouseSmal.png");
 //        addPolygonToObject(new Point(120, 0), this.xpoints, this.ypoints, this.npoints, "emptyHouseSmal.png");
     }

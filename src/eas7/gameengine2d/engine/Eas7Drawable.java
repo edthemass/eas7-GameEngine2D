@@ -20,4 +20,9 @@ public interface Eas7Drawable {
     public void update();
 
     public void setPosition(Point point);
+    
+    public String getName();
+    
+    public void setString(String string);
+    
 }

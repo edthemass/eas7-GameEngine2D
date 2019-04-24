@@ -23,7 +23,7 @@ public class GameProcessBar extends Eas7DrawObject{
     public GameProcessBar(Init init) {
         super(init);
         
-        addProcessBarToObject(new Point(150,150), xpoints, ypoints, npoints, imagename);
+        addProcessBarToObject(new Point(150,150), "prozess1",xpoints, ypoints, npoints, imagename);
         
     }
     

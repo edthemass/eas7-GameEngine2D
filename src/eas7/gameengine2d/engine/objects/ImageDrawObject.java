@@ -23,11 +23,13 @@ public final class ImageDrawObject implements Eas7Drawable {
     private Image images;
     private int imageWidth, imageHeight, imageX, imageY;
     private final Rectangle rectangle;
+    private String name;
 
-    public ImageDrawObject(Init init, String name, Point point) {
+    public ImageDrawObject(Init init, String imageName, String name, Point point) {
         this.init = init;
         this.rectangle = new Rectangle();
-        setShape(name);
+        this.name = name;
+        setShape(imageName);
         setPosition(point);
     }
 
@@ -73,5 +75,13 @@ public final class ImageDrawObject implements Eas7Drawable {
     public boolean isContainsMouse(MouseEvent e) {
         return this.rectangle.contains(e.getPoint());
     }
+
+    @Override
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public void setString(String string) {}
 
 }

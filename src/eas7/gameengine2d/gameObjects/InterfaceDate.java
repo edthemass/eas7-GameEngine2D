@@ -23,7 +23,8 @@ public class InterfaceDate extends Eas7DrawObject {
 
     public InterfaceDate(Init init) {
         super(init);
-        addStringToObject(getTime(), new Point(200,200), 12);
+        addStringToObject(getTime(), "kalendar", new Point(200, 200), 12);
+        startTimer();
     }
 
     public void startTimer() {
@@ -35,12 +36,12 @@ public class InterfaceDate extends Eas7DrawObject {
         });
         t.start();
     }
-    
-     public void doOnTic() {
-        time();
-    }
 
-     // setString
+    public void doOnTic() {
+        time();
+        setObjectString("kalendar", getTime());
+    }
+        // setString
     public String getTime() {
         String day = Integer.toString(this.day);
         String month = Integer.toString(this.month);
@@ -64,6 +65,5 @@ public class InterfaceDate extends Eas7DrawObject {
                 this.year++;
             }
         }
-        
     }
 }

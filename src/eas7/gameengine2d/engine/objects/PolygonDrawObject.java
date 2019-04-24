@@ -25,8 +25,9 @@ public class PolygonDrawObject implements Eas7Drawable {
     private Image image;
     private int imageWidth, imageHeight, npoints, gameFactor;
     private int[] xpoints, ypoints;
+    private String name;
 
-    public PolygonDrawObject(Init init, Point point, int[] xpoints, int[] ypoints, int npoints, String imagename) {
+    public PolygonDrawObject(Init init, String name, Point point, int[] xpoints, int[] ypoints, int npoints, String imagename) {
         this.init = init;
         this.position = new Point(point);
         this.polygon = new Polygon();
@@ -34,6 +35,7 @@ public class PolygonDrawObject implements Eas7Drawable {
         this.ypoints = ypoints;
         this.npoints = npoints;
         this.gameFactor = this.init.getGameFactor();
+        this.name = name;
         setPolygonShape(xpoints, ypoints, npoints);
         setPolygonImage(imagename);
         setPosition(point);
@@ -91,28 +93,36 @@ public class PolygonDrawObject implements Eas7Drawable {
     @Override
     public void update() {
     }
-    
-    public int getGameFactor(){
+
+    public int getGameFactor() {
         return this.gameFactor;
     }
-    
-    public void setImageWidthPos(int x){
+
+    public void setImageWidthPos(int x) {
         this.position.x = x;
     }
-    
-    public void setImageMove(){
+
+    public void setImageMove() {
         this.position.x += 1 * gameFactor;
     }
 
-    public int getImageWidth(){
+    public int getImageWidth() {
         return this.image.getWidth(null);
     }
-    
-    public int getImagePosX(){
+
+    public int getImagePosX() {
         return position.x;
     }
-    
-    public int[] getXpoints(){
+
+    public int[] getXpoints() {
         return this.xpoints;
     }
+
+    @Override
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public void setString(String string) {}
 }
