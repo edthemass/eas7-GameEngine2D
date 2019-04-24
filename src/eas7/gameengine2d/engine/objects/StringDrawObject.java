@@ -42,6 +42,10 @@ public class StringDrawObject implements Eas7Drawable {
 
     @Override
     public void update() {
+        //setString(string);
     }
 
+//    public void setString(String string){
+//        this.string = string;
+//    }
 }

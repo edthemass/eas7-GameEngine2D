@@ -8,6 +8,7 @@ package eas7.gameengine2d.engine;
 import eas7.gameengine2d.gameObjects.BackgroundMap;
 import eas7.gameengine2d.gameObjects.CitySpot;
 import eas7.gameengine2d.gameObjects.GameProcessBar;
+import eas7.gameengine2d.gameObjects.InterfaceDate;
 import eas7.gameengine2d.gameObjects.PlayerStats;
 import eas7.gameengine2d.gameObjects.TestMapTile;
 import eas7.gameengine2d.gameObjects.TestObject;
@@ -65,6 +66,8 @@ public class Init {
         objects.add(new TestMapTile(this, new Point(120,0)));
         
         objects.add(new GameProcessBar(this));
+        
+        objects.add(new InterfaceDate(this));
         
 //        objects.add(new PolygonDrawObject(this, new Point(0,0)));
         
